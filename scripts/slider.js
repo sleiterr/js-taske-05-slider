@@ -28,10 +28,12 @@ let images = [
 // Sørger for at vores img tag får en billedsti indsat i den src-attribute
 function setActiveSlide() {
     slide.src = images[currentImageIndex].src
+    slide.alt = images[currentImageIndex].alt
     contentImg.innerHTML = images[currentImageIndex].caption;
 }
 setActiveSlide();
 
+//? BTT
 function next() {
   // Er vi ved det sidste billede i rækken?
   if (currentImageIndex >= images.length - 1) {
