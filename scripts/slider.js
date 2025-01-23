@@ -1,18 +1,34 @@
 const slide = document.querySelector(".image-in-slide");
+const contentImg = document.querySelector(".img-content");
+
 const btnNext = document.querySelector(".next");
 const btnPrevious = document.querySelector(".previous");
 
 let currentImageIndex = 0;
 
 let images = [
-  "./assets/images/coffee1.jpg",
-  "./assets/images/coffee2.jpg",
-  "./assets/images/coffee3.jpg",
+  {
+    src: "./assets/images/coffee1.jpg",
+    alt: "coffee-1",
+    caption: "coffee",
+  },
+  {
+    src: "./assets/images/coffee2.jpg",
+    alt: "coffee-2",
+    caption: "coffee maker",
+  },
+  {
+    src: "./assets/images/coffee3.jpg",
+    alt: "coffee-3",
+    caption: "coffee aesthetics",
+  },
 ];
+
 
 // Sørger for at vores img tag får en billedsti indsat i den src-attribute
 function setActiveSlide() {
-  slide.src = images[currentImageIndex];
+    slide.src = images[currentImageIndex].src
+    contentImg.innerHTML = images[currentImageIndex].caption;
 }
 setActiveSlide();
 
@@ -41,5 +57,3 @@ function previous() {
 btnPrevious.addEventListener("click", previous);
 
 setInterval(next, 2000);
-
-
